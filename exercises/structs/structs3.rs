@@ -7,7 +7,7 @@
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+use std::cmp::Ordering;
 
 #[derive(Debug)]
 struct Package {
@@ -31,12 +31,15 @@ impl Package {
         }
     }
 
-    fn is_international(&self) -> ??? {
-        // Something goes here...
+    fn is_international(&self) -> bool {
+        match self.sender_country.cmp(&self.recipient_country) {
+            Ordering::Equal => return false,
+            _ => return true,
+        }
     }
 
-    fn get_fees(&self, cents_per_gram: u32) -> ??? {
-        // Something goes here...
+    fn get_fees(&self, cents_per_gram: u32) -> u32 {
+       return (cents_per_gram * self.weight_in_grams) 
     }
 }
 

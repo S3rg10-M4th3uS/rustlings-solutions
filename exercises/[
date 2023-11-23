@@ -20,6 +20,8 @@
 //
 // No hints this time!
 
+// I AM NOT DONE
+
 pub enum Command {
     Uppercase,
     Trim,
@@ -42,11 +44,11 @@ mod my_module {
                     output.push(string);
                 }
                 Command::Trim => {
-                    string = string.trim().to_string();
-                    output.push(string);
-                    println!("{:?}", output);
+                    string.trim();
+                    output.push(string.to_string());
                 }
                 Command::Append(size) => {
+                    let mut string = string.clone();
                     for _ in 0..*size {
                         string.push_str("bar");
                     }
